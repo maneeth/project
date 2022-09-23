@@ -1,7 +1,6 @@
 node(){
 stage("git checkout"){
-
-git checkout
+checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'GitV', url: 'https://github.com/maneeth/project.git']]])
 
 }
 stage("maven build"){
